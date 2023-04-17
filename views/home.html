@@ -1,0 +1,38 @@
+<head>
+
+</head>
+<body>
+<h1>
+    ID CONTAINER: [ID_CONTAINER]
+</h1>
+<h1>
+    [MENSAGEM_TELA_INICIAL]
+</h1>
+<div>
+    Escreva Aqui <input id="texto" type="text"></input>
+</div>
+
+<button onclick="Adicionar()">Adicionar</button>
+<ul>
+    [LISTA_TAREFAS]
+</ul>
+
+<script>
+
+    const Adicionar = async () => {
+        fetch('/add/'+ document.getElementById("texto").value)
+            .then( x =>{
+                    location.reload()
+            }
+            );
+    }
+
+    const Deletar = async (texto) => {
+        fetch('/del/'+ texto)
+            .then( x =>{
+                    location.reload()
+                }
+            );
+    }
+</script>
+</body>
